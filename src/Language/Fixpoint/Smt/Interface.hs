@@ -299,7 +299,7 @@ hCloseMe msg h = hClose h `catch` (\(exn :: IOException) -> putStrLn $ "OOPS, hC
 {- "z3 -smtc -in MBQI=false"        -}
 
 smtCmd         :: SMTSolver -> String --  T.Text
-smtCmd Z3      = "z3 parallel.enable=true -smt2 -in"
+smtCmd Z3      = "z3 parallel.enable=true parallel.threads.max=4 -smt2 -in"
 smtCmd Mathsat = "mathsat -input=smt2"
 smtCmd Cvc4    = "cvc4 --incremental -L smtlib2"
 
